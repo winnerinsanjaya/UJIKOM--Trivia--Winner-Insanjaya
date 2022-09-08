@@ -10,6 +10,10 @@ namespace Trivia.Pack
     {
         [SerializeField]
         private Button _backButton;
+
+        [SerializeField]
+        private Text _goldText;
+
         private void Start()
         {
             _backButton.onClick.AddListener(GoBack);
@@ -18,6 +22,12 @@ namespace Trivia.Pack
         private void GoBack()
         {
             SceneManager.LoadScene("Home");
+        }
+
+        private void Update()
+        {
+            int curCoin = PlayerPrefs.GetInt("CoinDB");
+            _goldText.text = curCoin.ToString();
         }
     }
 }
