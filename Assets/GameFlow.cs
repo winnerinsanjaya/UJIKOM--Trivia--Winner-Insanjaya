@@ -37,6 +37,9 @@ namespace Trivia.Gameplay
         public void SetWin()
         {
             Database db = FindObjectOfType<Database>();
+
+            int current = PlayerPrefs.GetInt(db._currentPack + "acumulate")+1;
+
             if (!db.QNA[db._currentQuestion - 1].Finished)
             {
 
@@ -48,6 +51,14 @@ namespace Trivia.Gameplay
                 string LevelID = names + "-" + levelName;
                 EventManager.TriggerEvent("FinishLevel", LevelID);
                 EventManager.TriggerEvent("LevelADD", packName);
+                if (current < 5)
+                {
+                    NextLevel(db._currentQuestion);
+                }
+                if(current >= 5)
+                {
+                    SceneManager.LoadScene("Pack");
+                }
 
 
             }
@@ -65,6 +76,13 @@ namespace Trivia.Gameplay
         {
             SceneManager.LoadScene("Level");
             Debug.Log("LOSE");
+        }
+
+        private void NextLevel(int next)
+        {
+            Database db = FindObjectOfType<Database>();
+            db._currentQuestion = next + 1;
+            SceneManager.LoadScene("Gameplay");
         }
     }
 
