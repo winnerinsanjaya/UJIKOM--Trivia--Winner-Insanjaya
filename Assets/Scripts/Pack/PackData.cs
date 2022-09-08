@@ -84,6 +84,8 @@ namespace Trivia.Pack
             Database db = FindObjectOfType<Database>();
             if (db._packsList[index].isUnlocked == true)
             {
+                db.SetPack(name);
+                db.LoadQNA(name);
                 db._currentPackIndex = index;
 
                 LevelScene();
