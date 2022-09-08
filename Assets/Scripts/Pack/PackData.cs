@@ -103,9 +103,12 @@ namespace Trivia.Pack
 
                 EventManager.TriggerEvent("UnlockPack", name);
                 EventManager.TriggerEvent("SaveUnlock", index);
+                if(price >= 20)
+                {
 
-                int setco = curCoin - 20;
-                PlayerPrefs.SetInt("CoinDB", setco);
+                    int setco = curCoin - 20;
+                    PlayerPrefs.SetInt("CoinDB", setco);
+                }
                 LevelScene();
             }
 
