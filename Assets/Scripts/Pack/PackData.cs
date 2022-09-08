@@ -90,7 +90,7 @@ namespace Trivia.Pack
 
                 LevelScene();
             }
-            if (price <= curCoin)
+            if (price <= curCoin && db._packsList[index].isUnlocked == false)
             {
                 db.SetPack(name);
 
