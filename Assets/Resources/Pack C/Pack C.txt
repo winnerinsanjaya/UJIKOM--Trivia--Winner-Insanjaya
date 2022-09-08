@@ -1,0 +1,35 @@
+1
+Warna dari Daun ?
+Merah
+Biru
+Hijau
+Kuning
+3
+2
+Warna dari Matahari ?
+Merah
+Biru
+Hijau
+Kuning
+4
+3
+Warna dari Laut ?
+Merah
+Biru
+Hijau
+Kuning
+2
+4
+Warna dari Mawar ?
+Merah
+Biru
+Hijau
+Kuning
+1
+5
+Warna dari Langit ?
+Merah
+Biru
+Hijau
+Kuning
+2
