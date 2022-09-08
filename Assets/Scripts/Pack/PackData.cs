@@ -81,9 +81,15 @@ namespace Trivia.Pack
         {
 
             int curCoin = PlayerPrefs.GetInt("CoinDB");
+            Database db = FindObjectOfType<Database>();
+            if (db._packsList[index].isUnlocked == true)
+            {
+                db._currentPackIndex = index;
+
+                LevelScene();
+            }
             if (price <= curCoin)
             {
-                Database db = FindObjectOfType<Database>();
                 db.SetPack(name);
 
                 Debug.Log(price.ToString());
