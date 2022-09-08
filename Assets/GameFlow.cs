@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Trivia.DB;
+using Trivia.Save;
+using Trivia.currency;
+using UnityEngine.SceneManagement;
 
 namespace Trivia.Gameplay
 {
@@ -33,11 +36,34 @@ namespace Trivia.Gameplay
 
         public void SetWin()
         {
-            Debug.Log("WIN");
+            Database db = FindObjectOfType<Database>();
+            if (!db.QNA[db._currentQuestion - 1].Finished)
+            {
+
+                db.SetFinished();
+                Debug.Log("WIN");
+                string packName = db._currentPack;
+                int levelName = db._currentQuestion;
+                string names = packName.Substring(packName.Length - 1);
+                string LevelID = names + "-" + levelName;
+                EventManager.TriggerEvent("FinishLevel", LevelID);
+                EventManager.TriggerEvent("LevelADD", packName);
+
+
+            }
+
+            else
+            {
+
+                Debug.Log("WIN BUT HAVE FINISHED BEFORE");
+                //if doesnt
+            }
+
         }
 
         public void SetLose()
         {
+            SceneManager.LoadScene("Level");
             Debug.Log("LOSE");
         }
     }

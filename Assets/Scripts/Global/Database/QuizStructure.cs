@@ -8,4 +8,5 @@ public class QuizStructure
     public string[] Choice;
     public string Hint;
     public int Answer;
+    public bool Finished;
 }

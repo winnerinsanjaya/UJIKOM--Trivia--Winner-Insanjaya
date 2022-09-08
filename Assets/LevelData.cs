@@ -33,6 +33,12 @@ namespace Trivia.Level
 
                 Database db = FindObjectOfType<Database>();
 
+
+                if (db.QNA[i].Finished)
+                {
+                    Transform childBtn =  packBtn.transform.GetChild(1);
+                    childBtn.gameObject.SetActive(true);
+                }
                 int questionnumber = i + 1;
 
                 string name = db._currentPack;
