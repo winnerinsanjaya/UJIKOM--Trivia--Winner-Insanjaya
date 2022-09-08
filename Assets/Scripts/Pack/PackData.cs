@@ -106,7 +106,7 @@ namespace Trivia.Pack
                 if(price >= 20)
                 {
 
-                    int setco = curCoin - 20;
+                    int setco = curCoin - 100;
                     PlayerPrefs.SetInt("CoinDB", setco);
                 }
                 LevelScene();
